@@ -129,7 +129,7 @@ export default function Portfolio() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="card">
+        <div className="card" id="about">
           <h2>About Me</h2>
           <p>
             I am Soumodeep Das (NightEagle), a cybersecurity enthusiast with a strong focus on threat intelligence,
@@ -146,7 +146,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="card">
+        <div className="card" id="skills">
           <h2>Skills</h2>
           <div className="grid grid-2">
             {["Wireshark", "Burp Suite", "Nmap", "Splunk", "Python", "Java", "FastAPI", "MySQL","Software Development","Malware Analysis"].map(skill => (
