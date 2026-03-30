@@ -7,11 +7,10 @@ import { TypeAnimation } from "react-type-animation";
 export default function Portfolio() {
   const [repos, setRepos] = useState([]);
 
-  // 🔥 Fetch GitHub repos
   useEffect(() => {
     fetch("https://api.github.com/users/SoumodeepDas2004/repos")
       .then((res) => res.json())
-      .then((data) => setRepos(data.slice(0, 6)));
+      .then((data) => setRepos(data.slice(0, 5)));
   }, []);
 
   // 🔥 Cursor Glow (fixed + cleaned)
@@ -38,10 +37,9 @@ export default function Portfolio() {
     fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@higherdas09")
       .then(res => res.json())
       .then(data => {
-        setArticles(data.items.slice(0, 6)); // latest 6 posts
+        setArticles(data.items.slice(0, 5)); // latest 5 posts
       });
   }, []);
-  // 🔥 Matrix Effect (stable)
   useEffect(() => {
     const canvas = document.getElementById("matrix");
     if (!canvas) return;
@@ -96,6 +94,7 @@ export default function Portfolio() {
           sequence={[
             "Cybersecurity Analyst", 1500,
             "Threat Intelligence", 1500,
+            "Malware Analyst", 1500,
             "SOC Operations", 1500,
             "Ethical Hacking", 1500,
             "Software Development", 1500,
@@ -105,7 +104,7 @@ export default function Portfolio() {
           repeat={Infinity}
         />
 
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "20px", fontSize: "25px" }}>
           <a href="#projects" className="button">View Projects</a>
           <a href="#contact" className="button" style={{ marginLeft: "10px" }}>Contact</a>
         </div>
@@ -133,15 +132,24 @@ export default function Portfolio() {
         <div className="card">
           <h2>About Me</h2>
           <p>
-            Soumodeep Das (NightEagle) is a cybersecurity enthusiast focused on threat intelligence,
-            SOC operations, and building secure systems.
+            I am Soumodeep Das (NightEagle), a cybersecurity enthusiast with a strong focus on threat intelligence,
+            SOC operations, malware analysis, and OSINT. I am passionate about understanding how real-world cyber threats
+            operate and continuously work on improving my skills in analyzing, detecting, and mitigating security risks.
+
+            Alongside cybersecurity, I build secure and privacy-focused applications, combining software development with
+            defensive security practices. My goal is to contribute to building resilient systems and to grow as a
+            cybersecurity professional capable of handling modern threat landscapes.
+          </p>
+
+          <p className="small" style={{ marginTop: "10px" }}>
+            Focus Areas: Cybersecurity, Threat Intelligence, SOC Analysis, Malware Research, OSINT, Secure Software Development
           </p>
         </div>
 
         <div className="card">
           <h2>Skills</h2>
           <div className="grid grid-2">
-            {["Wireshark", "Burp Suite", "Nmap", "Splunk", "Python", "Java", "FastAPI", "MySQL"].map(skill => (
+            {["Wireshark", "Burp Suite", "Nmap", "Splunk", "Python", "Java", "FastAPI", "MySQL","Software Development","Malware Analysis"].map(skill => (
               <div key={skill} className="card small center">
                 {skill}
               </div>
@@ -206,21 +214,21 @@ export default function Portfolio() {
         <h2>Connect</h2>
 
         <div style={{ marginTop: "10px", display: "flex", justifyContent: "center", gap: "20px" }}>
-          <a href="https://github.com/SoumodeepDas2004">
+          <a href="https://github.com/SoumodeepDas2004" target="_blank">
             <FaGithub size={28} />
           </a>
 
-          <a href="https://www.linkedin.com/in/soumodeepdas-cybersecurity-neagle02/">
+          <a href="https://www.linkedin.com/in/soumodeepdas-cybersecurity-neagle02/" target="_blank">
             <FaLinkedin size={28} />
           </a>
 
-          <a href="mailto:officialsoumodeepdas09@gmail.com">
-            <Mail size={32} /> {/* 👈 bigger */}
+          <a href="mailto:officialsoumodeepdas09@gmail.com" target="_blank">
+            <Mail size={32} />
           </a>
         </div>
       </section>
 
-      <footer>© Soumodeep Das (NightEagle)</footer>
+      <footer>© Soumodeep Das ( NightEagle ) </footer>
 
     </div>
   );
